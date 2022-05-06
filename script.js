@@ -32,7 +32,7 @@ const recipes = [
 	{
     "name": "hamburguesa",
     "ingredients": ["carne", " pan", " queso"],
-		"cant": [120, 1, 25],
+		"cant": [120, 180, 25],
 		"steps": `Haz un medallón de carne, aplasta y cocina en la plancha. Agrega queso hasta derretir y haz un sanguche`
   },
 	{
@@ -44,7 +44,7 @@ const recipes = [
 	{
     "name": "ensalada",
     "ingredients": ["lechuga", " tomate", " huevo", " pollo", " aceite", " limón"],
-		"cant": [120, 1, 1, 120, 25, 25],
+		"cant": [120, 80, 80, 120, 25, 25],
 		"steps": `Corta todos los ingredientes en trozos pequeños, y luego mezcla en un bowl con aceite y limón`
   },
 	{
@@ -68,16 +68,20 @@ recipes.forEach(function (arrayItem) {
 	const steps = arrayItem.steps;
 	const ingredients = arrayItem.ingredients;
 	const cant = arrayItem.cant;
+	const calc = [];
 
 
 	if (name === chooseRecipe){
 		for (let i = 0; i < cant.length; i++) {
-			const calc = calcIngredients(cant[i]);
+			// const newCants = calcIngredients(cant[i]);
+			calc.push(calcIngredients(cant[i]));
 		}
+
+		console.log(calc);
 
 		alert(`👩‍🍳 Para tu receta de ${name} vas a necesitar:
 📍Ingredientes: ${ingredients}
-⏲️Cantidades: ${cant} (gr).
+⏲️Cantidades: ${calc} (gr).
 📝Pasos a seguir: ${steps}`)
 	}
 });
