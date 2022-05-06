@@ -1,0 +1,46 @@
+// Variables
+
+// Colours
+
+$mainColor: #fff;
+$secondaryColor: #e9d8a5;
+$hightlightColor:#8b2b05;
+$fontColor: #e59e65;
+
+// Palette
+.bg-gradient-deep {
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.658), rgba(252, 252, 252, 0.03));
+}
+
+// Border-Radius
+$secBorderRadius: 5px;
+$mainBorderRadius: 10px;
+
+// Scrollbar
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 1);
+
+	&:hover {
+		border: 1px solid rgb(184, 184, 184);
+		border-radius: $mainBorderRadius;
+		// background: rgb(214, 214, 214);
+	}
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(51, 51, 51, 0.2);
+	border-radius: $mainBorderRadius;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: #254E70;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: $fontColor;
+}
