@@ -32,6 +32,13 @@ body {
 		text-align: center;
 	}
 
+	h3 {
+		font-size: $textMd;
+		color: $hightlightColor;
+		font-weight: 600;
+		text-align: center;
+	}
+
 	.headers {
 		margin-top: 25rem;
 		display: flex;
