@@ -77,8 +77,6 @@ recipes.forEach(function (arrayItem) {
 			calc.push(calcIngredients(cant[i]));
 		}
 
-		console.log(calc);
-
 		alert(`👩‍🍳 Para tu receta de ${name} vas a necesitar:
 📍Ingredientes: ${ingredients}
 ⏲️Cantidades: ${calc} (gr).
