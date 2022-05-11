@@ -28,7 +28,8 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: #8b2b05;
-    font-weight: 600; }
+    font-weight: 600;
+    margin-bottom: 5rem; }
   body h2 {
     font-size: 5rem;
     color: #fff;
@@ -39,9 +40,48 @@ body {
     color: #8b2b05;
     font-weight: 600;
     text-align: center; }
+  body h4, body p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center; }
   body .headers {
-    margin-top: 25rem;
+    margin-top: 5rem;
     display: flex;
     justify-content: flex-end;
     align-content: flex-end;
     flex-direction: column; }
+  body .error {
+    opacity: 0;
+    display: none;
+    margin-top: 5rem;
+    padding: 5rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    transition: all ease-in-out 1s; }
+  body .inputs {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    padding-top: 5rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    transition: all ease-in-out 1s; }
+    body .inputs .input-group {
+      display: flex;
+      justify-content: center; }
+      body .inputs .input-group select {
+        height: 50px; }
+      body .inputs .input-group .comensales {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        width: fit-content;
+        height: 50px; }
+  body .output {
+    margin-top: 5rem; }
+    body .output .card {
+      opacity: 0;
+      width: 50vw;
+      transition: all ease-in-out 1s; }

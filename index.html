@@ -6,14 +6,51 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Recipes</title>
 	<link rel="icon" type="image/icon" href="src/img/favicon.png">
-	<script src="script.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	<div class="headers">
-		<h1>Web de Recetas</h1>
-		<h2>Busca tu Receta!</h2>
-		<h3>Recarga para volver a empezar</h3>
+	<div class="container">
+		<div class="headers">
+			<h1>Web de Recetas</h1>
+			<h2>Busca tu Receta!</h2>
+		</div>
+		<div class="error">
+			<h3>Error!</h3>
+			<h4>Por Favor, ingresa una receta y un número válido de comensales</h4>
+		</div>
+		<div class="inputs">
+			<div class="input-group px-5">
+				<select class="form-select" id="inputGroupSelect" aria-label="Example select with button addon">
+					<option>Elige...</option>
+					<option value="pizza">pizza 🍕</option>
+					<option value="hamburguesa">hamburguesa 🍔</option>
+					<option value="papas">papas 🍟</option>
+					<option value="ensalada">ensalada🥗</option>
+					<option value="pasta">pasta 🍝</option>
+				</select>
+			</div>
+			<div class="input-group p-5">
+				<span class="input-group-text comensales">Comensales</span>
+				<input id="comensales" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Ingresa el numero de comensales">
+			</div>
+			<button id="btn" class="btn btn-outline-success btn-lg m-5" type="button">Calcular</button>
+		</div>
+		<div class="output">
+			<div class="card my-2 mx-auto">
+				<img src="./src/img/pasta.png" class="card-img-top" alt="card-img">
+				<div class="card-body d-flex flex-column">
+					<h3 class="card-title"></h3>
+					<h4 class="card-sub-title"></h4>
+					<p class="card-ingredients"> </p>
+					<p class="card-cants"></p>
+					<p class="card-steps"></p>
+					<a href="#" id="reload" class="btn btn-outline-success">Reload!</a>
+				</div>
+			</div>
+		</div>
 	</div>
-	<link rel="stylesheet" href="css/main.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
 </body>
 </html>
