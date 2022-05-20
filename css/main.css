@@ -81,7 +81,29 @@ body {
         height: 50px; }
   body .output {
     margin-top: 5rem; }
+    body .output .calculator {
+      opacity: 1;
+      width: fit-content;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 5px;
+      transition: all ease-in-out 1s; }
+      body .output .calculator .list-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; }
+        body .output .calculator .list-wrapper ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; }
     body .output .card {
       opacity: 0;
       width: 50vw;
+      max-width: 50vh;
       transition: all ease-in-out 1s; }
