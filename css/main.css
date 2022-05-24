@@ -102,8 +102,6 @@ body {
           flex-direction: column;
           justify-content: space-between;
           margin-bottom: 1rem; }
-        body .output .calculator .list-wrapper .selected-recipes-calc {
-          border-bottom: 1px solid black; }
     body .output .card {
       opacity: 0;
       width: 50vw;
