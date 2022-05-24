@@ -66,6 +66,7 @@ const chooseRecipe = document.querySelector('#inputGroupSelect');
 let comensales = document.querySelector('#comensales');
 const reload = document.querySelector('#reload');
 const btnMath = document.querySelector('#btn-math');
+const addRecipe = document.querySelector('#add-recipe');
 
 //Card
 let cardImg= document.querySelector('.card-img-top');
@@ -107,21 +108,6 @@ btn.onclick = (event) => {
 				document.querySelector('.inputs').style.display = 'none';
 				errorModal.style.opacity = '0';
 				errorModal.style.display = 'none';
-
-        // Save selection on storage
-        selectedRecipes.push(arrayItem);
-
-        // localStorage.setItem("recipes", JSON.stringify(selectedRecipes));
-
-        let saveInStorage = (clave, valor) => {
-          localStorage.setItem(clave, valor);
-        }
-
-        const json = JSON.stringify(selectedRecipes);
-
-        for (const recipe of selectedRecipes) {
-          saveInStorage(recipe.name, JSON.stringify(recipe))
-        }
 			}
 		});
 	} else {
@@ -131,6 +117,28 @@ btn.onclick = (event) => {
 	}
 };
 
+addRecipe.onclick = (event) => {
+	event.preventDefault();
+  if (chooseRecipe.value && comensales.value > 0) {
+    recipes.forEach(function (arrayItem) {
+      if (arrayItem.name === chooseRecipe.value){
+        // Save selection on storage
+      selectedRecipes.push(arrayItem);
+    
+      let saveInStorage = (clave, valor) => {
+        localStorage.setItem(clave, valor);
+      }
+    
+      const json = JSON.stringify(selectedRecipes);
+    
+      for (const recipe of selectedRecipes) {
+        saveInStorage(recipe.name, JSON.stringify(recipe))
+      }
+      console.log('add');
+      }
+    });
+  }
+};
 
 reload.onclick = (event) => {
 	event.preventDefault();
@@ -140,7 +148,7 @@ reload.onclick = (event) => {
 // Show recipes selected list
 
 Object.keys(localStorage).map(function(key, index) {
-  const item = JSON.parse(localStorage[key])
+  const item = JSON.parse(localStorage[key]);
   const recipesSelectedList = document.querySelector('.selected-recipes-list');
   let li = document.createElement('li');
   li.innerHTML = `${item.name}`;
@@ -151,7 +159,7 @@ Object.keys(localStorage).map(function(key, index) {
 
 btnMath.onclick = (event) => {
   Object.keys(localStorage).map(function(key, index) {
-    const item = JSON.parse(localStorage[key])
+    const item = JSON.parse(localStorage[key]);
     const recipesSelectedCalc = document.querySelector('.selected-recipes-calc');
     let liIngredients = document.createElement('li');
     let liCants = document.createElement('li');
@@ -161,5 +169,4 @@ btnMath.onclick = (event) => {
     recipesSelectedCalc.appendChild(liCants);
   });
 }
-
 });

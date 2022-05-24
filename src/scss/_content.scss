@@ -75,9 +75,6 @@ body {
 	.input-group{
 		display: flex;
 		justify-content: center;
-		select {
-			height: 50px;
-		}
 		.comensales {
 			display: flex;
 			justify-content: center;
@@ -110,8 +107,13 @@ body {
         ul {
           list-style: none;
           display: flex;
+          height: 100%;
           flex-direction: column;
           justify-content: space-between;
+          margin-bottom: 1rem;
+        }
+        .selected-recipes-calc {
+          border-bottom: 1px solid black;
         }
       }
     }

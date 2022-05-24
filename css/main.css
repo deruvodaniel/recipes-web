@@ -70,8 +70,6 @@ body {
     body .inputs .input-group {
       display: flex;
       justify-content: center; }
-      body .inputs .input-group select {
-        height: 50px; }
       body .inputs .input-group .comensales {
         display: flex;
         justify-content: center;
@@ -100,8 +98,12 @@ body {
         body .output .calculator .list-wrapper ul {
           list-style: none;
           display: flex;
+          height: 100%;
           flex-direction: column;
-          justify-content: space-between; }
+          justify-content: space-between;
+          margin-bottom: 1rem; }
+        body .output .calculator .list-wrapper .selected-recipes-calc {
+          border-bottom: 1px solid black; }
     body .output .card {
       opacity: 0;
       width: 50vw;
