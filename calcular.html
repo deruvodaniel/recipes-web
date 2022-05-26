@@ -47,10 +47,18 @@
 		<div class="output">
       <div class="calculator">
         <h4>Recetas Agregadas</h4>
-        <div class="list-wrapper">
-          <ul class="selected-recipes-list"></ul>
-          <ul class="selected-recipes-calc"></ul>
-        </div>
+        <ul class="selected-recipes-list"></ul>
+          <table class="table">
+            <thead>
+              <tr class="table-light">
+                <th scope="col" class="table-light">Receta</td>
+                <th scope="col" class="table-light">Ingredientes</td>
+                <th scope="col" class="table-light">Cantidades (gr)</td>
+              </tr>
+            </thead>
+            <tr scope="row" class="table-light table-content">
+            </tr>
+          </table>
         <button id="btn-math" class="btn btn-outline-success btn-lg col-auto m-3" type="button">Calcular</button>
         <button id="btn-clean-lstorage" class="btn btn-outline-success btn-lg col-auto m-3" type="button">Limpiar lista</button>
       </div>

@@ -68,6 +68,8 @@ const reload = document.querySelector('#reload');
 const btnMath = document.querySelector('#btn-math');
 const addRecipe = document.querySelector('#add-recipe');
 const cleanStorage = document.querySelector('#btn-clean-lstorage');
+const tabla = document.querySelector('.table');
+const recipesSelectedList = document.querySelector('.selected-recipes-list');
 
 //Card
 let cardImg= document.querySelector('.card-img-top');
@@ -157,7 +159,6 @@ reload.onclick = (event) => {
 
 Object.keys(localStorage).map(function(key, index) {
   const item = JSON.parse(localStorage[key]);
-  const recipesSelectedList = document.querySelector('.selected-recipes-list');
   let li = document.createElement('li');
   li.innerHTML = `${item.name}`;
   recipesSelectedList.appendChild(li);
@@ -167,14 +168,23 @@ Object.keys(localStorage).map(function(key, index) {
 
 btnMath.onclick = (event) => {
   Object.keys(localStorage).map(function(key, index) {
+    tabla.style.display = "inline-table"
+    tabla.style.opacity = "1"
+    recipesSelectedList.style.display = "none"
     const item = JSON.parse(localStorage[key]);
-    const recipesSelectedCalc = document.querySelector('.selected-recipes-calc');
-    let liIngredients = document.createElement('li');
-    let liCants = document.createElement('li');
-    liIngredients.innerHTML = `${item.ingredients}`;
-    liCants.innerHTML = `${item.cant}`;
-    recipesSelectedCalc.appendChild(liIngredients);
-    recipesSelectedCalc.appendChild(liCants);
+    const recipesSelectedCalc = document.querySelector('.table');
+    let row = document.createElement('tr');
+    let tableIngredients = document.createElement('td');
+    let tableCants = document.createElement('td');
+    let tableRecipes = document.createElement('td');
+    row.innerHTML = `<tr scope="row" class="table-content">`;
+    tableRecipes.innerHTML = `<td class="table-light">${item.name}</td>`;
+    tableIngredients.innerHTML = `<td class="table-light">${item.ingredients}</td>`;
+    tableCants.innerHTML = `<td class="table-light"">${item.cant}</td>`;
+    recipesSelectedCalc.appendChild(row);
+    row.appendChild(tableRecipes);
+    row.appendChild(tableIngredients);
+    row.appendChild(tableCants);
   });
 }
 });
