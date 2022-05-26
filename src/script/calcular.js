@@ -67,6 +67,7 @@ let comensales = document.querySelector('#comensales');
 const reload = document.querySelector('#reload');
 const btnMath = document.querySelector('#btn-math');
 const addRecipe = document.querySelector('#add-recipe');
+const cleanStorage = document.querySelector('#btn-clean-lstorage');
 
 //Card
 let cardImg= document.querySelector('.card-img-top');
@@ -135,9 +136,16 @@ addRecipe.onclick = (event) => {
         saveInStorage(recipe.name, JSON.stringify(recipe))
       }
       console.log('add');
+      location.reload();
       }
     });
   }
+};
+
+cleanStorage.onclick = (event) => {
+	event.preventDefault();
+  localStorage.clear();
+	location.reload();
 };
 
 reload.onclick = (event) => {
