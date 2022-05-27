@@ -243,6 +243,7 @@ btnMath.onclick = (event) => {
     row.appendChild(tableRecipes);
     row.appendChild(tableIngredients);
     row.appendChild(tableCants);
+    btnMath.disabled = true;
   });
 }
 });
