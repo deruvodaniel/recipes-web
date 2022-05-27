@@ -82,7 +82,7 @@ const calcIngredients = function (ingredient) {
 
 btn.onclick = (event) => {
 	event.preventDefault();
-	if (chooseRecipe.value && comensales.value > 0) {
+	if (chooseRecipe.value != 'Elige...' && comensales.value > 0) {
 		// Search match for recipes choose
 		recipes.forEach(function (arrayItem) {
 			const calc = [];
@@ -104,14 +104,15 @@ btn.onclick = (event) => {
 				document.querySelector('.card').style.opacity = '1';
 				document.querySelector('.inputs').style.opacity = '0';
 				document.querySelector('.inputs').style.display = 'none';
-				errorModal.style.opacity = '0';
-				errorModal.style.display = 'none';
 			}
 		});
 	} else {
 		//Show error
-		errorModal.style.opacity = '1';
-		errorModal.style.display = 'block';
+		Swal.fire(
+      'Error',
+      'Ingresa una Receta y un número válido de comensales',
+      'error'
+    )
 	}
 };
 

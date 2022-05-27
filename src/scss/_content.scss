@@ -53,16 +53,6 @@ body {
 		align-content: flex-end;
 		flex-direction: column;
 	}
-
-.error {
-	opacity: 0;
-	display: none;
-	margin-top: 5rem;
-	padding: 5rem;
-	background-color: rgba($color: #fff, $alpha: .7);
-	border-radius: 5px;
-	transition: all ease-in-out 1s;
-}
 .inputs{
 	opacity: 1;
 	display: flex;
@@ -129,6 +119,14 @@ body {
 			width: 50vw;
       max-width: 50vh;
 			transition: all ease-in-out 1s;
+      .card-body {
+        a {
+          margin-top: 1rem;
+        }
+        .card-title {
+          text-transform: capitalize;
+        }
+      }
 		}
 	}
 }

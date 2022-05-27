@@ -87,7 +87,7 @@ const calcIngredients = function (ingredient) {
 
 btn.onclick = (event) => {
 	event.preventDefault();
-	if (chooseRecipe.value && comensales.value > 0) {
+	if (chooseRecipe.value != 'Elige...' && comensales.value > 0)  {
 		// Search match for recipes choose
 		recipes.forEach(function (arrayItem) {
 			const calc = [];
@@ -109,14 +109,15 @@ btn.onclick = (event) => {
 				document.querySelector('.card').style.opacity = '1';
 				document.querySelector('.inputs').style.opacity = '0';
 				document.querySelector('.inputs').style.display = 'none';
-				errorModal.style.opacity = '0';
-				errorModal.style.display = 'none';
 			}
 		});
 	} else {
 		//Show error
-		errorModal.style.opacity = '1';
-		errorModal.style.display = 'block';
+		Swal.fire(
+      'Error',
+      'Ingresa una Receta y un número válido de comensales',
+      'error'
+    )
 	}
 };
 
@@ -137,17 +138,74 @@ addRecipe.onclick = (event) => {
       for (const recipe of selectedRecipes) {
         saveInStorage(recipe.name, JSON.stringify(recipe))
       }
-      console.log('add');
-      location.reload();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Receta Agregada Correctamente'
+      })
+      setTimeout(function(){
+        location.reload();
+      }, 2000);
       }
     });
   }
 };
 
+if (localStorage.length === 0){
+  let modalRecipes = document.querySelector('.calculator');
+  modalRecipes.style.display = 'none'
+}
+
 cleanStorage.onclick = (event) => {
 	event.preventDefault();
-  localStorage.clear();
-	location.reload();
+  if (localStorage.length > 0){
+    Swal.fire({
+      title: 'Estas seguro que deseas limpiar la lista?',
+      text: "Esta acción es irreversible!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#198754',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Borrar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'success',
+          title: 'La lista de recetas está vacía'
+        })
+        setTimeout(function(){
+          location.reload();
+        }, 2000);
+      }
+    })
+    localStorage.clear();
+  } else {
+    Swal.fire('La lista está vacía')
+  }
 };
 
 reload.onclick = (event) => {
