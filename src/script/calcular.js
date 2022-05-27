@@ -235,10 +235,10 @@ btnMath.onclick = (event) => {
     let tableIngredients = document.createElement('td');
     let tableCants = document.createElement('td');
     let tableRecipes = document.createElement('td');
-    row.innerHTML = `<tr scope="row" class="table-content">`;
+    row.innerHTML = `<tr scope="row" class="table-light table-content">`;
     tableRecipes.innerHTML = `<td class="table-light">${item.name}</td>`;
     tableIngredients.innerHTML = `<td class="table-light">${item.ingredients}</td>`;
-    tableCants.innerHTML = `<td class="table-light"">${item.cant}</td>`;
+    tableCants.innerHTML = `<td class="table-light">${item.cant}</td>`;
     recipesSelectedCalc.appendChild(row);
     row.appendChild(tableRecipes);
     row.appendChild(tableIngredients);
